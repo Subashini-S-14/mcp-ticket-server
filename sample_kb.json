@@ -1,2 +1,0 @@
-# This file keeps the data directory in version control.
-# The actual tickets.db is generated at runtime and excluded via .gitignore.
