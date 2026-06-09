@@ -1,0 +1,60 @@
+{
+  "articles": [
+    {
+      "id": "KB-001",
+      "title": "Password Reset Guide",
+      "content": "If you've forgotten your password, follow these steps to reset it:\n\n1. Navigate to the login page and click 'Forgot Password'\n2. Enter your registered email address\n3. Check your inbox for the reset link (check spam/junk folders)\n4. Click the link within 24 hours (it expires after that)\n5. Enter your new password (minimum 8 characters, must include uppercase, lowercase, and a number)\n6. Log in with your new password\n\nIf you don't receive the reset email within 5 minutes:\n- Check your spam/junk folder\n- Verify you're using the correct email address\n- Contact support for manual password reset\n\nFor security, password reset links can only be used once and expire after 24 hours.",
+      "category": "account",
+      "tags": "password, reset, email, recovery, forgot, login"
+    },
+    {
+      "id": "KB-002",
+      "title": "SSO Configuration Guide",
+      "content": "Setting up Single Sign-On (SSO) for your organization:\n\nSupported Providers:\n- Okta (SAML 2.0)\n- Google Workspace (OIDC)\n- Azure Active Directory (coming soon)\n\nSetup Steps:\n1. Navigate to Settings → Authentication → SSO\n2. Select your identity provider\n3. Enter your SAML endpoint URL or OIDC client credentials\n4. Upload your IdP metadata XML file\n5. Configure attribute mappings (email, name, department)\n6. Test the connection with a pilot group\n7. Enable SSO for all users\n\nImportant Notes:\n- SSO is available on Enterprise plans only\n- Users will be auto-provisioned on first login\n- Existing accounts will be linked by email address\n- Admin accounts can always use password fallback",
+      "category": "authentication",
+      "tags": "sso, saml, azure, okta, google, single sign-on, authentication"
+    },
+    {
+      "id": "KB-003",
+      "title": "Dashboard Performance Tuning",
+      "content": "If your dashboard is loading slowly, try these optimization steps:\n\nQuick Fixes:\n1. Reduce the date range filter (default is 90 days, try 30 days)\n2. Disable real-time updates in Settings → Dashboard → Auto-refresh\n3. Remove unused widgets from your dashboard layout\n4. Clear your browser cache and cookies\n\nAdvanced Optimization:\n1. Enable data caching: Settings → Performance → Enable Cache\n2. Set cache TTL to 5 minutes for non-critical widgets\n3. Use the 'Lite' dashboard view for large datasets (>10,000 records)\n4. Schedule heavy reports for off-peak hours\n\nFor Administrators:\n- Check database query performance in Admin → Diagnostics\n- Add composite indexes for frequently filtered columns\n- Consider archiving data older than 1 year\n- Monitor connection pool usage in the health dashboard",
+      "category": "performance",
+      "tags": "dashboard, slow, loading, cache, performance, optimization, speed"
+    },
+    {
+      "id": "KB-004",
+      "title": "API Rate Limiting Configuration",
+      "content": "Understanding and configuring API rate limits:\n\nDefault Limits:\n- Free tier: 60 requests/minute\n- Pro tier: 300 requests/minute\n- Enterprise tier: 1,000 requests/minute\n\nRate Limit Headers:\nAll API responses include these headers:\n- X-RateLimit-Limit: Maximum requests per window\n- X-RateLimit-Remaining: Requests remaining in current window\n- X-RateLimit-Reset: Unix timestamp when the window resets\n\nHandling Rate Limits:\nWhen you exceed the limit, you'll receive a 429 Too Many Requests response. Best practices:\n1. Implement exponential backoff (start with 1 second, double each retry)\n2. Cache responses when possible\n3. Use bulk endpoints instead of individual calls\n4. Monitor your usage via the API dashboard\n\nCustom Rate Limits:\nEnterprise customers can request custom rate limits by contacting support.",
+      "category": "api",
+      "tags": "rate-limit, api, throttle, configuration, 429, requests"
+    },
+    {
+      "id": "KB-005",
+      "title": "Monthly Report Export Guide",
+      "content": "How to export monthly usage and analytics reports:\n\nExport Steps:\n1. Navigate to Settings → Reports\n2. Select the report type (Usage, Analytics, Billing, or Custom)\n3. Choose the date range (select the month you need)\n4. Select the export format:\n   - CSV: Best for data analysis in Excel or Google Sheets\n   - PDF: Best for sharing with stakeholders\n   - JSON: Best for programmatic processing\n5. Click 'Generate Report'\n6. Download will start automatically (large reports may take a few minutes)\n\nScheduled Reports:\nYou can set up automatic monthly reports:\n1. Go to Settings → Reports → Scheduled\n2. Click 'New Schedule'\n3. Select report type and format\n4. Choose delivery method (email or webhook)\n5. Set the schedule (e.g., 1st of every month)\n\nNote: Reports include data up to the previous day. Real-time data is available in the dashboard.",
+      "category": "reports",
+      "tags": "export, csv, pdf, monthly, reports, analytics, download"
+    },
+    {
+      "id": "KB-006",
+      "title": "Server Error (5xx) Troubleshooting",
+      "content": "Troubleshooting guide for server errors (500, 502, 503, 504):\n\n500 Internal Server Error:\n- Usually caused by application-level issues\n- Check recent deployments for breaking changes\n- Review application logs for stack traces\n- Verify database connectivity and connection pool status\n- Check disk space and memory usage\n\n502 Bad Gateway:\n- The upstream server returned an invalid response\n- Check if the application process is running\n- Verify reverse proxy configuration (nginx/Apache)\n- Check for network issues between proxy and app server\n\n503 Service Unavailable:\n- Server is overloaded or under maintenance\n- Check CPU and memory usage\n- Review auto-scaling configuration\n- Wait for maintenance window to complete\n\n504 Gateway Timeout:\n- Upstream server took too long to respond\n- Check for slow database queries\n- Review timeout settings in proxy config\n- Consider increasing timeout for long-running operations\n\nGeneral Steps:\n1. Check the status page: status.example.com\n2. Review application logs in Admin → Logs\n3. Check recent deployments in Admin → Deployments\n4. Contact support if the issue persists beyond 30 minutes",
+      "category": "troubleshooting",
+      "tags": "500, error, server, debug, logs, 502, 503, 504, troubleshooting"
+    },
+    {
+      "id": "KB-007",
+      "title": "Billing and Payment FAQ",
+      "content": "Frequently asked questions about billing and payments:\n\nQ: What payment methods do you accept?\nA: We accept Visa, Mastercard, American Express, and PayPal. Enterprise customers can pay by invoice (NET 30).\n\nQ: How do I update my payment method?\nA: Go to Settings → Billing → Payment Methods → Add/Edit.\n\nQ: Can I switch plans mid-cycle?\nA: Yes! Upgrades are prorated and take effect immediately. Downgrades take effect at the next billing cycle.\n\nQ: Do you offer annual billing discounts?\nA: Yes, annual billing saves 20% compared to monthly billing. Contact sales for enterprise pricing.\n\nQ: How do I cancel my subscription?\nA: Go to Settings → Billing → Cancel Subscription. Your data will be retained for 30 days after cancellation.\n\nQ: Where can I find my invoices?\nA: Settings → Billing → Invoice History. Invoices are also emailed to the billing contact on file.\n\nQ: Do you offer refunds?\nA: We offer a 14-day money-back guarantee for new subscriptions. Contact support for refund requests.",
+      "category": "billing",
+      "tags": "billing, payment, invoice, subscription, pricing, refund, cancel"
+    },
+    {
+      "id": "KB-008",
+      "title": "User Role and Permission Setup",
+      "content": "Managing user roles and permissions in your organization:\n\nAvailable Roles:\n1. Owner: Full access, billing management, can delete organization\n2. Admin: User management, settings, all features\n3. Manager: Team management, report access, feature configuration\n4. Member: Standard access to assigned features and data\n5. Viewer: Read-only access to dashboards and reports\n\nSetting Up Roles:\n1. Navigate to Settings → Team → Members\n2. Click on a user's name to edit their role\n3. Select the new role from the dropdown\n4. Click 'Save Changes'\n\nCustom Roles (Enterprise):\nEnterprise customers can create custom roles:\n1. Go to Settings → Team → Roles\n2. Click 'Create Custom Role'\n3. Name the role and select permissions\n4. Assign the role to team members\n\nPermission Categories:\n- Data Access: View, create, edit, delete records\n- Admin: User management, billing, settings\n- Reports: View, export, schedule reports\n- API: API key management, webhook configuration\n\nBest Practices:\n- Follow the principle of least privilege\n- Review permissions quarterly\n- Use custom roles for specialized access needs",
+      "category": "admin",
+      "tags": "roles, permissions, admin, access, users, team, security"
+    }
+  ]
+}
