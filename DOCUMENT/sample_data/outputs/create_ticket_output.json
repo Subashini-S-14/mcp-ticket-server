@@ -1,0 +1,16 @@
+{
+  "ticket": {
+    "id": "TKT-1a2b3c4d",
+    "title": "Database connection timeout in production",
+    "description": "The main analytics dashboard is failing to load because the connection to the read-replica database is timing out after 30 seconds. This started happening after the v2.4.1 deployment.",
+    "status": "open",
+    "priority": "critical",
+    "category": "bug",
+    "created_by": "oncall-engineer@company.com",
+    "assigned_to": null,
+    "created_at": "2026-06-09T11:00:00.000Z",
+    "updated_at": "2026-06-09T11:00:00.000Z",
+    "resolved_at": null
+  },
+  "message": "Ticket created successfully"
+}

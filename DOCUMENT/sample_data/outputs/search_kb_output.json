@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "id": "KB-101",
+      "title": "Resolving Database Read-Replica Timeouts",
+      "content": "If read-replicas are timing out, check the connection pool size in PgBouncer. A sudden spike in analytics queries can exhaust the pool. Increase pool_size to 200 in pgbouncer.ini.",
+      "category": "database",
+      "tags": "timeout, postgres, replica",
+      "relevance_score": 14.5
+    },
+    {
+      "id": "KB-102",
+      "title": "Identifying Slow Analytics Queries",
+      "content": "To find slow queries causing dashboard load issues, run: SELECT pid, now() - pg_stat_activity.query_start AS duration, query FROM pg_stat_activity WHERE state = 'active' ORDER BY duration DESC;",
+      "category": "database",
+      "tags": "analytics, performance, postgres",
+      "relevance_score": 10.2
+    },
+    {
+      "id": "KB-103",
+      "title": "Scaling the Database Layer",
+      "content": "When CPU utilization hits 80% on the primary, it is recommended to scale out by adding an additional read-replica and routing all SELECT queries to the replica endpoints.",
+      "category": "infrastructure",
+      "tags": "scaling, aws, rds",
+      "relevance_score": 5.1
+    },
+    {
+      "id": "KB-104",
+      "title": "Handling HTTP 500 Errors on Login",
+      "content": "Login HTTP 500 errors are usually caused by the Auth Service losing connection to the Redis session cache. Restart the redis-cluster pods to resolve.",
+      "category": "authentication",
+      "tags": "login, 500, redis",
+      "relevance_score": 2.3
+    },
+    {
+      "id": "KB-105",
+      "title": "Configuring Application Timeouts",
+      "content": "The default HTTP client timeout is 30 seconds. This can be increased by setting the HTTP_TIMEOUT environment variable in the deployment manifest.",
+      "category": "configuration",
+      "tags": "timeout, env",
+      "relevance_score": 1.1
+    }
+  ],
+  "total_results": 5,
+  "query": "database timeout replica"
+}
