@@ -1,0 +1,5 @@
+{
+  "ticket_id": "TKT-1a2b3c4d",
+  "author": "support_agent_88",
+  "content": "I've checked the CloudWatch logs and can confirm the timeouts. Escalating to the DBA team."
+}
